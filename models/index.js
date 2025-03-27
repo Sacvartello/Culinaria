@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('./userModel');
+const Dish = require('./dishModel')
+const Ingridient = require('./ingridientModel')
 const db = require('../configs/mConfig.json');
 
 const CONFIG = db[process.env.NODE_ENV || "development"];
@@ -13,5 +15,5 @@ mongoose.connect(url)
 })
 
 module.exports = {
-    User
+    User, Dish, Ingridient
 }
