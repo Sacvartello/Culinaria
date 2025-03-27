@@ -1,1 +1,1 @@
-GET http://localhost:5000/api/dish/67e581fcddbfcb9894045b81 HTTP/1.1
+GET http://localhost:5000/api/ingridient/67e581fcddbfcb9894045b81 HTTP/1.1
