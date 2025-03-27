@@ -1,0 +1,6 @@
+PUT http://localhost:5000/api/user/67e573052d235da76417ca9f HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "John"
+}

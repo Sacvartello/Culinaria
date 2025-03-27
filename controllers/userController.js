@@ -1,7 +1,6 @@
 const{User} = require('../models')
 module.exports.createUser = async(req,res,next)=>{
     try{
-        console.log(t);
         const {body} = req
         const user = await User.create(body)
         res.status(201).send(user)
