@@ -4,15 +4,15 @@ module.exports.createDish = async(req,res,next)=>{
         const {body:{ingridients, dish}} = req
         const newDish = await Dish.create(dish)
         ingridients.forEach(async(ing) => {
+            console.log('ing:',ing);
             let ingridient = await Ingridient.find({
                 name: ing
             })
-            if(!ingridient) {
-                ingridient = await Ingridient.create({ing})
+            if(!ingridient[0]) {
+                ingridient =[await Ingridient.create({name:ing})]
             }
-            console.log(ingridient.ObjectId);
-            console.log(newDish.ObjectId);
-            // const compound = await Compound.create({ingridientId:ingridient.ObjectId, dishId:newDish.ObjectId})
+            console.log('ingridient:',ingridient);
+            const compound = await Compound.create({ingridientId:ingridient[0]._id, dishId:newDish._id})
         });
         res.status(201).send(newDish)
     } catch(err){
